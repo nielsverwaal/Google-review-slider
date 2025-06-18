@@ -1,0 +1,25 @@
+{% block block__inner %}
+    {% apply spaceless %}
+    <table class="opening-hours">
+        {% for day, data in hours %}
+            <tr class="
+                    {{
+                data.is_special
+                    ? 'special-opening'
+                    : 'normale-opening'
+                }}
+                    {{ data.is_today ? 'today' : '' }}">
+                <td>{{ data.day.label }}</td>
+                <td>
+                    {% for t in data.times %}
+                        {{ t }}
+                    {% endfor %}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% if special_note %}
+        <p class="mt-2"><small>{{ special_note }}</small></p>
+    {% endif %}
+    {% endapply %}
+{% endblock %}

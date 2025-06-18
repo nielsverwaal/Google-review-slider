@@ -1,0 +1,20 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Levdbas/acf-json-schema/main/acf-blocks.json",
+    "name": "acf/menukaart",
+    "title": "Menukaart",
+    "description": "Interactieve menukaart met tabs en allergenen.",
+    "category": "wp-lemon-blocks",
+    "icon": "food",
+    "keywords": ["menu", "menukaart", "eten"],
+    "apiVersion": 2,
+    "textdomain": "wp-lemon-child",
+    "acf": {
+        "mode": "edit"
+    },
+    "supports": {
+        "mode": true,
+        "align": false,
+        "html": false,
+        "jsx": true
+    }
+}

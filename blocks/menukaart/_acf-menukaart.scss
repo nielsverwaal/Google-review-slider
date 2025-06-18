@@ -1,0 +1,195 @@
+.menukaart {
+	padding: 1rem;
+	color: $shark;
+	background: $light-grey;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 5%);
+
+	.menu-tabs-wrapper {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 2rem;
+
+		.toggle-container {
+			display: flex;
+			justify-content: flex-end;
+			margin-bottom: 1rem;
+		}
+
+		.menu-tabs-container {
+			display: flex;
+
+			.menu-tabs {
+				display: flex;
+				gap: 0.5rem;
+
+				.tab-button {
+					font-family: $base-font;
+					font-weight: 400;
+					cursor: pointer;
+
+					&.active {
+						font-weight: 700;
+					}
+				}
+			}
+		}
+	}
+
+	.menu-tabs-content {
+		margin-top: 2rem;
+	}
+
+	.tab-panel {
+		display: none;
+		animation: fade-in 0.3s ease;
+
+		&.active {
+			display: block;
+		}
+	}
+
+	.menu-section {
+		margin-bottom: 1.125rem;
+
+		.section-title {
+			margin-bottom: 1.5rem;
+			font-family: $secondary-font;
+			font-size: 1.5rem;
+			color: $down-river;
+			text-transform: initial;
+		}
+	}
+
+	.menu-items {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+
+	.menu-item {
+		&:not(:first-child) {
+			.menu-item__header {
+				margin-top: 1rem;
+			}
+		}
+
+		.menu-item__header {
+			display: grid;
+			grid-template-columns: auto 1fr;
+			gap: 1rem;
+			font-family: $secondary-font;
+		}
+
+		.menu-item__title {
+			margin: 0;
+			font-size: 1.25rem;
+			hyphens: auto;
+		}
+
+		.menu-item__price {
+			text-align: right;
+			white-space: nowrap;
+		}
+
+		.menu-item__description {
+			margin-top: 0.25rem;
+			font-size: pxtorem(18px);
+			line-height: 1.4;
+			color: $shark;
+		}
+	}
+
+	.toggle-container {
+		display: flex;
+		align-items: center;
+
+		.switch-button {
+			display: flex;
+			gap: 0.75rem;
+			align-items: center;
+			padding: 0;
+			font: inherit;
+			color: inherit;
+			cursor: pointer;
+			background: transparent;
+			border: none;
+
+			&:focus-visible {
+				outline: 2px solid $shark;
+				outline-offset: 3px;
+			}
+		}
+
+		.switch-slider {
+			position: relative;
+			width: 42px;
+			height: 24px;
+			background-color: $light-grey;
+			border-radius: 24px;
+			transition: background-color 0.3s ease;
+
+			&::before {
+				position: absolute;
+				top: 3px;
+				left: 3px;
+				width: 18px;
+				height: 18px;
+				content: "";
+				background-color: $white;
+				border-radius: 50%;
+				transition: transform 0.3s ease;
+			}
+		}
+
+		.switch-button[aria-checked="true"] .switch-slider {
+			background-color: $highlight2;
+		}
+
+		.switch-button[aria-checked="true"] .switch-slider::before {
+			transform: translateX(18px);
+		}
+
+		.switch-text {
+			font-size: 0.875rem;
+			font-weight: 500;
+		}
+	}
+
+	/* allergenenlijst met Bootstrap collapse */
+	.allergen-list {
+		display: flex;
+		flex-flow: row wrap;
+		gap: 0.5rem;
+		align-items: center;
+		justify-content: flex-start;
+		padding: 0;
+		list-style: none;
+
+		li {
+			display: flex;
+			align-items: center;
+			padding: 0.25rem 0.75rem;
+			overflow: hidden;
+			font-size: 0.85rem;
+			line-height: 1.4;
+			text-align: center;
+			white-space: nowrap;
+			background: $white;
+			border: 1px solid $light-grey;
+			border-radius: 999px;
+
+			span {
+				margin-left: 0.1rem;
+				line-height: 1.2;
+			}
+		}
+
+		&.collapse:not(.show) {
+			display: none;
+		}
+	}
+}

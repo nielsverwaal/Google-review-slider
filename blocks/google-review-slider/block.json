@@ -1,0 +1,18 @@
+{
+    "name": "acf/google-review-slider",
+    "title": "Google Review Slider",
+    "description": "Toont de laatste 5 Google reviews in een slider.",
+    "category": "widgets",
+    "icon": "format-quote",
+    "keywords": ["google", "review", "slider"],
+    "apiVersion": 2,
+    "acf": {
+        "mode": "edit"
+    },
+    "supports": {
+        "mode": true,
+        "align": false,
+        "html": false,
+        "jsx": true
+    }
+}

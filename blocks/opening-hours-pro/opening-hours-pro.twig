@@ -1,0 +1,10 @@
+{% extends 'layouts/block-wrap.twig' %}
+
+{% block block__inner %}
+    <div id="{{ block_instance_id }}" class="opening-hours-pro acf-block" aria-live="polite">
+        <div class="opening-hours-pro__loading" role="status">
+            <span>Openingstijden worden geladen...</span>
+        </div>
+    </div>
+    <noscript>{% include 'blocks/opening-hours-pro/block-ajax.twig' %}</noscript>
+{% endblock %}

@@ -1,0 +1,21 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Levdbas/acf-json-schema/main/acf-blocks.json",
+    "name": "acf/opening-hours-pro",
+    "title": "Opening Hours Pro",
+    "description": "Toon reguliere en speciale openingstijden. Automatisch actuele week en met toggle.",
+    "category": "wp-lemon-blocks",
+    "icon": "clock",
+    "keywords": ["openingstijden", "opening hours", "speciale openingstijden"],
+    "apiVersion": 2,
+    "style": "file:index.css",
+    "textdomain": "wp-lemon-child",
+    "acf": {
+        "mode": "edit"
+    },
+    "supports": {
+        "mode": true,
+        "align": false,
+        "html": false,
+        "jsx": true
+    }
+}

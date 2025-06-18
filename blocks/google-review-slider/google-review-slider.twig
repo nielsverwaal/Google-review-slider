@@ -1,0 +1,57 @@
+{% extends 'layouts/block-wrap.twig' %}
+
+{% block block__inner %}
+    {% set reviews = data.reviews %}
+    {% if reviews is empty %}
+        <p>⚠️ Geen reviews gevonden.</p>
+    {% else %}
+        {% set use_slider = (reviews|length) >= 5 %}
+        <div class="google-review-slider acf-block {{ use_slider ? 'swiper' : 'no-slider' }}"
+            role="region"
+            aria-label="Review slider"
+            aria-live="polite">
+            <div class="{{ use_slider ? 'swiper-wrapper' : 'review-list' }}">
+                {% for review in reviews %}
+                    <div class="{{ use_slider ? 'swiper-slide' : 'review-item' }}">
+                        <div class="review-card">
+                            <div class="review-author">{{ review.author_name }}</div>
+                            <span class="review-rating"
+                                role="img"
+                                aria-label="{{ review.rating }} sterren">
+                                {% set rounded = ((review.rating * 2)|round) / 2 %}
+                                {% for i in 1..5 %}
+                                    {% if rounded >= i %}
+                                        {% include '@blocks/google-review-slider/icons/star-full.svg' %}
+                                    {% elseif rounded >= i - 0.5 %}
+                                        {% include '@blocks/google-review-slider/icons/star-half.svg' %}
+                                    {% else %}
+                                        {% include '@blocks/google-review-slider/icons/star-empty.svg' %}
+                                    {% endif %}
+                                {% endfor %}
+                            </span>
+                            <div class="review-text">
+                                {{ (review.text|length) > 250
+                                    ? (review.text|slice(0, 250)) ~ '…'
+                                    : review.text }}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            {% if use_slider %}
+                <div class="swiper-pagination"></div>
+            {% endif %}
+        </div>
+    {% endif %}
+    {% if data.reviews is not empty %}
+        <div class="google-review-link wp-block-button is-style-arrow">
+            <a href="https://www.google.com/maps/place/?q=place_id:{{ data.place_id }}"
+                target="_blank"
+                rel="noopener"
+                aria-label="Bekijk alle Google reviews in een nieuw venster"
+                class="wp-block-button__link has-white-color has-totem-pole-background-color has-text-color has-background theme-button">
+                Bekijk alle reviews op Google
+            </a>
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,59 @@
+.google-review-slider {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 1rem 0;
+
+  .swiper-wrapper {
+    display: flex;
+  }
+
+  .swiper-slide {
+    min-width: 0;
+    flex-shrink: 0;
+    height: auto;
+    min-height: 200px;
+  }
+
+  .review-card {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    height: 100%;
+  }
+  .review-rating {
+    display: flex;
+    margin-bottom: 0.625rem;
+  }
+  .review-author {
+    font-family: $secondary-font;
+    margin-bottom: 0.625rem;
+}
+
+.review-text {
+    font-size: 1rem;
+}
+}
+
+.google-review-slider.no-slider {
+  .review-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  .review-item {
+    flex: 1 1 100%;
+    @media (min-width: 640px) {
+      flex: 1 1 calc(50% - 1rem);
+    }
+    @media (min-width: 1024px) {
+      flex: 1 1 calc(33.333% - 1rem);
+    }
+  }
+}
+.google-review-link {
+    margin: 1.5rem auto 0;
+    width: fit-content;
+    width: fit-content;
+}
